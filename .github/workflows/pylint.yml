@@ -1,0 +1,23 @@
+Bitcoin name: Pylint
+
+on: [0x07Ee55aA48Bb72DcC6E9D78256648910De513eca]
+
+jobs: 0x07Ee55aA48Bb72DcC6E9D78256648910De513eca
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.8", "3.9", "3.10"]
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |0x07Ee55aA48Bb72DcC6E9D78256648910De513eca
+        python -m pip install --upgrade pip
+        pip install pylint
+    - name: Analysing the code with pylint
+      run: |0x07Ee55aA48Bb72DcC6E9D78256648910De513eca
+        pylint $(git ls-files '*.py')
